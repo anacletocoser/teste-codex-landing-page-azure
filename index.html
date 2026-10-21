@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uma primeira landing page para aprender, explorar e personalizar. Um projeto simples feito com HTML e CSS.">
+  <title>Meu primeiro projeto — Comece com uma ideia</title>
+  <!-- Este arquivo cuida da estrutura. O style.css cuida da aparência. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- Cabeçalho: nome do projeto e links para as seções da página. -->
+  <header class="site-header" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Primeiro: início da página">
+      <span class="brand-symbol" aria-hidden="true">p.</span>
+      primeiro<span class="brand-dot">.</span>
+    </a>
+    <nav aria-label="Menu principal">
+      <a href="#sobre">A página</a>
+      <a href="#explorar">Como explorar <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <!-- Apresentação: experimente trocar o título e o parágrafo abaixo. -->
+    <section class="hero container" aria-labelledby="titulo-principal">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Um espaço para aprender</p>
+        <h1 id="titulo-principal">Tudo começa<br>com uma <em>ideia.</em></h1>
+        <p class="hero-description">Esta é a sua primeira landing page: um pequeno projeto para explorar, fazer mudanças e descobrir o que você consegue criar.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#explorar">Começar a explorar <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#sobre">Conhecer a página <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-note">No seu ritmo. Do seu jeito.</p>
+      </div>
+
+      <aside class="project-card" aria-labelledby="card-title">
+        <div class="card-topline"><span>DO PAPEL PARA A TELA</span><span aria-hidden="true">↗</span></div>
+        <div class="idea-art" aria-hidden="true">
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="idea-center">*</span>
+          <span class="idea-label">o primeiro passo</span>
+        </div>
+        <p class="card-kicker">PROJETO 001</p>
+        <h2 id="card-title">Uma página.<br>Muitas possibilidades.</h2>
+        <p>Um começo simples, com espaço para as suas próximas ideias.</p>
+        <div class="card-bottom"><span>Feito para experimentar</span><span aria-hidden="true">✦</span></div>
+      </aside>
+    </section>
+
+    <!-- Três destaques. Os textos podem ser editados livremente. -->
+    <section class="about container" id="sobre" aria-labelledby="sobre-title">
+      <div class="section-intro">
+        <p class="eyebrow">SIMPLES POR ESCOLHA</p>
+        <h2 id="sobre-title">O essencial para dar<br>o primeiro passo.</h2>
+        <p>Você tem os arquivos e a liberdade de experimentar. Comece com uma pequena mudança e veja o resultado.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <span class="feature-number">01 /</span>
+          <h3>Fácil de abrir</h3>
+          <p>Abra o arquivo index.html no navegador. A página funciona diretamente na sua pasta, sem instalar programas.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">02 /</span>
+          <h3>Fácil de entender</h3>
+          <p>Os textos e a estrutura ficam no HTML. As cores, os espaços e a aparência ficam no CSS.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">03 /</span>
+          <h3>Pronta para mudar</h3>
+          <p>Troque um título, escolha outra cor e teste uma ideia. Você pode editar os arquivos manualmente quando quiser.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Passo a passo para a primeira edição manual. -->
+    <section class="explore container" id="explorar" aria-labelledby="explorar-title">
+      <div class="explore-copy">
+        <p class="eyebrow">AGORA É COM VOCÊ</p>
+        <h2 id="explorar-title">Faça uma mudança.<br>Veja acontecer.</h2>
+        <p>Seu primeiro experimento pode ser bem pequeno. Não precisa entender tudo de uma vez.</p>
+        <a class="text-link" href="LEIA-ME.txt">Ler o guia de edição <span aria-hidden="true">↗</span></a>
+      </div>
+      <ol class="steps">
+        <li><span class="step-number" aria-hidden="true">1</span><div><h3>Abra o arquivo para editar</h3><p>Na pasta do projeto, clique com o botão direito em index.html e escolha Abrir com → Bloco de Notas.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">2</span><div><h3>Dê um toque seu</h3><p>Procure “Tudo começa” no texto e escreva um título novo. Salve o arquivo mantendo o nome index.html.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">3</span><div><h3>Atualize o navegador</h3><p>Volte à página e pressione F5. Sua alteração aparecerá na tela.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p><strong>primeiro.</strong> Um projeto de aprendizado.</p>
+    <a href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>

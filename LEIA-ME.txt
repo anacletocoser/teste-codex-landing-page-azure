@@ -1,0 +1,92 @@
+MINHA PRIMEIRA LANDING PAGE
+==========================
+
+Este é um projeto de aprendizado. Você pode abrir e editar os arquivos
+diretamente no seu computador. Não precisa instalar programas, usar um
+terminal ou ter uma conta em qualquer serviço para executar a página.
+
+1. O QUE TEM NESTA PASTA?
+
+index.html
+  Contém os textos, títulos, links e a estrutura da página.
+  HTML descreve o conteúdo que o navegador apresenta.
+
+style.css
+  Contém as cores, fontes, espaços e regras para telas pequenas.
+  CSS define a aparência do conteúdo.
+
+LEIA-ME.txt
+  É este guia. Você pode consultá-lo a qualquer momento.
+
+Mantenha os três arquivos juntos nesta pasta. O index.html procura o
+style.css no mesmo local. Não há JavaScript, fontes externas ou imagens
+para baixar: o desenho do cartão também é feito com CSS.
+
+2. COMO ABRIR NO NAVEGADOR
+
+Abra esta pasta no Explorador de Arquivos e dê dois cliques em index.html.
+Se ele abrir em um editor, clique com o botão direito no arquivo, escolha
+"Abrir com" e selecione Edge, Chrome, Firefox ou outro navegador.
+
+O endereço pode começar com file:///. Isso é normal: você está abrindo
+um arquivo do seu computador. Não é necessário iniciar um servidor.
+
+3. PRIMEIRO EXERCÍCIO: TROCAR O TÍTULO
+
+a) Faça uma cópia de segurança do index.html antes de experimentar.
+b) Clique com o botão direito em index.html.
+c) Escolha "Abrir com" e depois "Bloco de Notas" ou seu editor de texto.
+d) Use Ctrl + F e procure: Tudo começa
+e) Troque esse texto por: Meu projeto nasceu
+f) Salve com Ctrl + S.
+g) Volte ao navegador e pressione F5.
+
+Edite só o texto para começar. Preserve as marcações como <h1>, <br>,
+<em> e </h1>. Elas ajudam o navegador a organizar o conteúdo.
+
+O texto dentro de <title>, perto do começo do arquivo, aparece na aba
+do navegador. Você também pode personalizá-lo.
+
+4. SEGUNDO EXERCÍCIO: TROCAR UMA COR
+
+Abra style.css no Bloco de Notas. No início do arquivo, procure:
+
+  --background: #f7f7ef;
+
+Troque por:
+
+  --background: #ffffff;
+
+Salve e atualize o navegador. O fundo passará de creme para branco.
+Esses códigos representam cores. Para voltar à cor original, restaure
+o valor #f7f7ef.
+
+5. COMO OS LINKS FUNCIONAM
+
+Os botões principais levam a seções desta mesma página.
+Por exemplo, href="#explorar" leva ao elemento com id="explorar".
+O link "Ler o guia de edição" abre este arquivo de instruções; dependendo
+do navegador, ele também pode ser baixado em vez de exibido.
+
+Não há formulário, envio de dados, cadastro ou publicação na internet.
+Os arquivos estão na sua pasta. Se essa pasta for sincronizada pelo
+OneDrive, essa sincronização segue as configurações da sua conta.
+
+6. COMO VER A VERSÃO PARA CELULAR
+
+No computador, diminua a largura da janela do navegador. Os elementos
+vão se reorganizar em uma coluna. As regras responsáveis por isso estão
+no final de style.css, dentro dos blocos que começam com @media.
+
+7. SE A ALTERAÇÃO NÃO APARECER
+
+- Confira se salvou o arquivo e se atualizou a página.
+- Confira se está editando a mesma cópia que está aberta no navegador.
+- No Explorador, ative a exibição de extensões dos arquivos. Verifique
+  se o nome continua sendo index.html, e não index.html.txt.
+- Mantenha o nome style.css exatamente igual ao indicado no HTML.
+- Se precisar salvar usando "Salvar como", selecione "Todos os arquivos"
+  e a codificação UTF-8, preservando a extensão original.
+- Se algo sair errado, use sua cópia de segurança para recuperar o arquivo.
+
+Bom aprendizado! Comece com uma pequena alteração de cada vez.

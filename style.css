@@ -1,0 +1,129 @@
+/* 1. Cores principais: troque estes valores para personalizar a página. */
+:root {
+  --background: #f7f7ef;
+  --ink: #193b31;
+  --muted: #58665d;
+  --accent: #d9ee9e;
+  --line: #d8dfd1;
+  --card: #e8eedf;
+}
+
+/* 2. Base: fonte, tamanho dos elementos e comportamento dos links. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+p, h1, h2, h3 { margin-top: 0; }
+h1, h2, h3 { line-height: 1.12; }
+.container { width: min(1120px, 88%); margin-inline: auto; }
+.eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; }
+.skip-link { position: absolute; left: 16px; top: -100px; padding: 12px 20px; background: var(--accent); z-index: 2; }
+.skip-link:focus { top: 16px; }
+
+/* 3. Cabeçalho e navegação. */
+.site-header {
+  width: min(1120px, 88%);
+  margin-inline: auto;
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.45rem; font-weight: 750; letter-spacing: -0.06em; }
+.brand-symbol { display: grid; place-items: center; width: 34px; height: 34px; background: var(--ink); color: var(--accent); border-radius: 9px; font-size: 1.35rem; }
+.brand-dot { margin-left: -10px; }
+nav { display: flex; gap: 32px; font-size: 0.86rem; font-weight: 600; }
+nav a:hover, .site-footer a:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+/* 4. Primeira seção e botões. */
+.hero { display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 64px; padding-block: 72px 80px; }
+.hero .eyebrow { display: flex; align-items: center; gap: 9px; letter-spacing: 0.05em; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #5b7639; }
+h1 { margin-block: 24px; font-size: clamp(2.9rem, 5.8vw, 5rem); font-weight: 650; letter-spacing: -0.065em; }
+h1 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -0.055em; }
+.hero-description { max-width: 460px; color: var(--muted); font-size: 1.03rem; }
+.hero-actions { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 32px; }
+.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 28px; padding: 15px 22px; border-radius: 7px; font-size: 0.88rem; font-weight: 650; transition: background 150ms ease; }
+.button-primary { background: var(--ink); color: var(--background); }
+.button-primary:hover { background: #2c5141; }
+.text-link { display: inline-flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 650; text-decoration: underline; text-underline-offset: 5px; }
+.hero-note { margin-top: 24px; margin-bottom: 0; color: var(--muted); font-size: 0.75rem; }
+
+/* 5. Cartão ilustrado: o desenho é feito apenas com CSS. */
+.project-card { min-width: 0; background: var(--card); border-radius: 18px; padding: 26px 30px 22px; }
+.card-topline, .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card-topline { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; }
+.card-topline > span:last-child { font-size: 1.2rem; }
+.idea-art { position: relative; height: 190px; display: grid; place-items: center; margin-block: 10px 20px; }
+.orbit { position: absolute; width: 158px; height: 158px; border: 1px solid #a5b591; border-radius: 50%; }
+.orbit-one { transform: translateX(-36px); }
+.orbit-two { transform: translateX(36px); }
+.idea-center { position: relative; display: grid; place-items: center; width: 112px; height: 112px; background: var(--accent); border-radius: 50%; font-family: Georgia, serif; font-size: 9rem; line-height: 1; padding-top: 25px; }
+.idea-label { position: absolute; right: 2px; bottom: 5px; padding: 4px 13px; border: 1px solid #b6c3a6; border-radius: 30px; background: var(--background); transform: rotate(-8deg); font-size: 0.72rem; }
+.card-kicker { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.13em; margin-bottom: 10px; }
+.project-card h2 { font-size: 2rem; font-weight: 600; letter-spacing: -0.04em; margin-bottom: 14px; }
+.project-card > p:not(.card-kicker) { color: var(--muted); font-size: 0.85rem; max-width: 290px; }
+.card-bottom { border-top: 1px solid #c8d3bc; padding-top: 14px; margin-top: 22px; font-size: 0.68rem; }
+.card-bottom > span:last-child { font-size: 1.1rem; }
+
+/* 6. Seção de destaques. */
+.about { padding-block: 56px 64px; border-top: 1px solid var(--line); }
+.section-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 0 80px; }
+.section-intro .eyebrow { grid-column: 1 / -1; margin-bottom: 18px; }
+.section-intro h2, .explore h2 { font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 600; letter-spacing: -0.045em; margin-bottom: 16px; }
+.section-intro > p:last-child { color: var(--muted); font-size: 0.92rem; max-width: 410px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 38px; }
+.feature { padding-top: 22px; border-top: 1px solid var(--line); }
+.feature-number { display: block; font-size: 0.74rem; color: var(--muted); margin-bottom: 28px; }
+.feature h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 14px; }
+.feature p { color: var(--muted); font-size: 0.88rem; margin-bottom: 0; }
+
+/* 7. Passo a passo e rodapé. */
+.explore { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding: 48px; margin-block: 8px 56px; background: #edf0e7; border-radius: 16px; }
+.explore-copy > p:not(.eyebrow) { color: var(--muted); font-size: 0.9rem; max-width: 330px; }
+.explore-copy .text-link { margin-top: 12px; }
+.steps { display: grid; gap: 24px; list-style: none; padding: 0; margin: 0; align-content: center; }
+.steps li { display: flex; gap: 16px; }
+.step-number { display: grid; place-items: center; flex: 0 0 30px; height: 30px; border: 1px solid #bdcab0; border-radius: 50%; font-size: 0.75rem; }
+.steps h3 { font-size: 0.91rem; margin-block: 5px 7px; }
+.steps p { color: var(--muted); font-size: 0.81rem; margin-bottom: 0; }
+.site-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-block: 24px 32px; font-size: 0.75rem; color: var(--muted); }
+.site-footer p { margin-bottom: 0; }
+.site-footer strong { color: var(--ink); margin-right: 12px; }
+
+/* 8. Telas menores: as colunas passam a ficar uma abaixo da outra. */
+@media (max-width: 850px) {
+  .hero { gap: 32px; }
+  .hero-actions { gap: 20px; }
+  .project-card { padding-inline: 22px; }
+  .section-intro { gap: 0 32px; }
+  .explore { padding: 32px; gap: 32px; }
+}
+@media (max-width: 650px) {
+  .site-header { min-height: 88px; flex-wrap: wrap; gap: 12px; padding-block: 18px; }
+  nav { gap: 18px; font-size: 0.78rem; }
+  .hero { grid-template-columns: 1fr; padding-block: 42px 48px; gap: 36px; }
+  h1 { font-size: clamp(2.8rem, 10.5vw, 4rem); }
+  .hero-description { max-width: none; }
+  .project-card { padding: 24px; }
+  .section-intro, .feature-grid, .explore { grid-template-columns: 1fr; }
+  .about { padding-block: 40px; }
+  .feature-grid { gap: 26px; margin-top: 22px; }
+  .feature-number { margin-bottom: 14px; }
+  .explore { padding: 28px 22px; gap: 32px; margin-bottom: 36px; }
+  .site-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+/* Respeita a preferência de quem desativa animações no sistema. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button { transition: none; }
+}
