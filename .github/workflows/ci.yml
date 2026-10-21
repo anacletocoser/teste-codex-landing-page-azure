@@ -1,0 +1,40 @@
+# CI: confere a página. A publicação na Azure será configurada depois.
+name: CI - Verificar landing page
+
+# Executa ao enviar commits para main, ao propor alterações para main
+# e ao clicar em "Run workflow" na aba Actions do GitHub.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Esta automação só precisa ler o repositório.
+permissions:
+  contents: read
+
+# Se houver uma execução mais nova para a mesma referência, cancela a antiga.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar-site:
+    name: Verificar arquivos e links
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Obter os arquivos do repositório
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Disponibilizar Python 3.13
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Conferir a landing page
+        run: python -B -X utf8 scripts/validar_site.py

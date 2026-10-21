@@ -1,0 +1,21 @@
+# Arquivos temporários gerados pelo sistema operacional.
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Arquivos temporários e cópias de segurança de editores.
+*.tmp
+*.swp
+*~
+
+# Cache do Python. A página não depende de Python para funcionar.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Configurações locais com possíveis credenciais.
+# Esta regra não remove segredos que já tenham sido registrados em um commit.
+.env
+.env.*
+!.env.example
