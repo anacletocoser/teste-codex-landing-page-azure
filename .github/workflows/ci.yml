@@ -1,5 +1,5 @@
-# CI: confere a página. A publicação na Azure será configurada depois.
-name: CI - Verificar landing page
+# CI verifica a página; CD publica na Azure somente depois da aprovação da CI.
+name: CI/CD - Verificar e publicar landing page
 
 # Executa ao enviar commits para main, ao propor alterações para main
 # e ao clicar em "Run workflow" na aba Actions do GitHub.
@@ -14,10 +14,11 @@ on:
 permissions:
   contents: read
 
-# Se houver uma execução mais nova para a mesma referência, cancela a antiga.
+# Em PRs, cancela verificações antigas. Em main, aguarda a execução em andamento
+# para não interromper uma publicação que já começou.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verificar-site:
@@ -38,3 +39,44 @@ jobs:
 
       - name: Conferir a landing page
         run: python -B -X utf8 scripts/validar_site.py
+
+  publicar-site:
+    name: Publicar na Azure
+    # Sem sucesso em verificar-site, este job não é executado.
+    needs: verificar-site
+    # PRs só verificam. Publica em push ou execução manual na branch main.
+    if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Obter os arquivos do repositório
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Conferir segredo de publicação
+        env:
+          TOKEN_PUBLICACAO: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN_PUBLICACAO" ]; then
+            echo "::error::Cadastre AZURE_STATIC_WEB_APPS_API_TOKEN nos segredos de Actions do repositório."
+            exit 1
+          fi
+
+      - name: Separar somente os arquivos públicos
+        run: |
+          mkdir -p site-publicado
+          cp -- index.html style.css LEIA-ME.txt site-publicado/
+
+      - name: Enviar os arquivos para Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: upload
+          app_location: site-publicado
+          api_location: ''
+          output_location: ''
+          skip_app_build: true
+          skip_api_build: true
+          production_branch: main
